@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QR kod</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+body{font-family:system-ui,sans-serif;text-align:center;padding:24px;background:#eef3dc;color:#2b1a20}
+input{width:100%;max-width:420px;padding:12px;font-size:1rem;border:2px solid #7a1f3d;border-radius:10px}
+button{margin-top:12px;padding:12px 24px;font-size:1rem;font-weight:700;border:0;border-radius:10px;background:#7a1f3d;color:#fff}
+#qr{margin:24px auto;background:#fff;padding:16px;display:inline-block;border-radius:12px}
+p{margin-top:8px}
+</style>
+</head>
+<body>
+<h2>QR kod yasash</h2>
+<input id="url" value="https://axszevs85-tech.github.io/VEBUSTA/">
+<br><button onclick="make()">QR yasash</button>
+<div><div id="qr"></div></div>
+<p>QR rasmni bosib ushlang → "Rasmni saqlash"</p>
+<script>
+function make(){
+  var box=document.getElementById("qr");
+  box.innerHTML="";
+  new QRCode(box,{text:document.getElementById("url").value,width:300,height:300,correctLevel:QRCode.CorrectLevel.H});
+}
+make();
+</script>
+</body>
+</html>
